@@ -53,6 +53,7 @@ const ALLOWED_MIME = [
 
 const PAGO_OPCIONES = ['Efectivo', 'Transferencia', 'Yappy'];
 const CONSENTIMIENTO_OPCIONES = ['Sí', 'No'];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /* ------------------------------------------------------------------ */
 /* Configuración inicial: ejecútala UNA vez desde el editor            */
@@ -110,7 +111,7 @@ function doPost(e) {
       safe_(clean_(data.whatsapp, 20)),
       safe_(clean_(data.direccion, 200)),
       safe_(clean_(data.redes, 150)),
-      safe_(clean_(data.correo, 120)),
+      safe_(clean_(data.correo, 120).toLowerCase()),
       safe_(clean_(data.salud, 1000)),
       safe_(clean_(data.alergias, 1000)),
       safe_(clean_(data.emergencia, 150)),
@@ -151,6 +152,8 @@ function validate_(d) {
       return 'Faltan los datos de la persona responsable.';
     }
   }
+
+  if (!EMAIL_RE.test(clean_(d.correo, 120))) return 'Falta un correo electrónico válido.';
 
   if (CONSENTIMIENTO_OPCIONES.indexOf(d.consentimiento) === -1) return 'Falta responder la autorización.';
   if (PAGO_OPCIONES.indexOf(d.pago) === -1) return 'Falta la forma de pago.';
@@ -258,6 +261,7 @@ function notify_(d, fileUrl, repetido) {
       'Cédula o pasaporte: ' + docId_(d.documento),
       'Edad: ' + (isNaN(edad) ? '—' : edad),
       'WhatsApp: ' + clean_(d.whatsapp, 20),
+      'Correo: ' + clean_(d.correo, 120),
       'Forma de pago: ' + clean_(d.pago, 20),
       'Comprobante: ' + (fileUrl || 'No adjuntó'),
       repetido ? '\nAtención: este documento ya estaba registrado.' : '',

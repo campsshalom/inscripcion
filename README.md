@@ -35,7 +35,7 @@ Queda en `https://yinoxavier.github.io/FormCamps2/`.
 
 ## Cómo funciona el formulario
 
-- **Obligatorios:** nombre, cédula o pasaporte, fecha de nacimiento, WhatsApp, autorización y forma de pago.
+- **Obligatorios:** nombre, cédula o pasaporte, fecha de nacimiento, WhatsApp, correo electrónico, autorización y forma de pago.
 - Si la persona es **menor de 18 años**, aparecen los campos del responsable y pasan a ser obligatorios.
 - Si la edad está fuera de **14 a 28 años**, se muestra un aviso, pero no se bloquea la inscripción.
 - La hoja guarda la edad calculada y marca con "Sí" la columna **¿Documento repetido?** cuando un documento ya estaba inscrito.
