@@ -655,8 +655,8 @@
           </div>
 
           <div class="field" data-field="correo">
-            <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="correo" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="correo-err">
+            <label for="correo">Correo electrónico <span class="opt">(opcional)</span></label>
+            <input type="email" id="correo" name="correo" autocomplete="email" inputmode="email" maxlength="120" aria-describedby="correo-err">
             <p class="error-msg" id="correo-err" aria-live="polite"></p>
           </div>
 
@@ -971,8 +971,7 @@
         else if (!phoneOk(wa)) errors.push(['whatsapp', 'Revisa el número de WhatsApp, por ejemplo 6123-4567.']);
 
         const correo = form.correo.value.trim();
-        if (!correo) errors.push(['correo', 'Escribe tu correo electrónico.']);
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo)) errors.push(['correo', 'Revisa el correo, por ejemplo nombre@gmail.com.']);
+        if (correo && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo)) errors.push(['correo', 'Revisa el correo, por ejemplo nombre@gmail.com.']);
 
         if (age !== null && age >= 0 && age < 18) {
           if (form.responsable.value.trim().length < 3) errors.push(['responsable', 'Escribe el nombre y parentesco de tu responsable.']);

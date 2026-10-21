@@ -153,7 +153,8 @@ function validate_(d) {
     }
   }
 
-  if (!EMAIL_RE.test(clean_(d.correo, 120))) return 'Falta un correo electrónico válido.';
+  const correo = clean_(d.correo, 120);
+  if (correo && !EMAIL_RE.test(correo)) return 'El correo electrónico no es válido.';
 
   if (CONSENTIMIENTO_OPCIONES.indexOf(d.consentimiento) === -1) return 'Falta responder la autorización.';
   if (PAGO_OPCIONES.indexOf(d.pago) === -1) return 'Falta la forma de pago.';
