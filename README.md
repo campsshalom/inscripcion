@@ -1,8 +1,8 @@
-# FormCamps2
+# Camp's · Inscripción de participantes
 
 Landing de inscripción de **participantes** para el Camp's, el Campamento de jóvenes Shalom.
 Cada inscripción se guarda en una Google Sheet de tu Drive y el comprobante de pago en una carpeta de Drive.
-Es el mismo proyecto que [FormCamps](https://github.com/yinoxavier/FormCamps), que se usa para los servidores, pero con su propia hoja y su propia carpeta.
+Es el mismo proyecto que [servidores](https://github.com/campsshalom/servidores), que se usa para los servidores, pero con su propia hoja y su propia carpeta.
 
 ```
 index.html              ← la landing (formulario, paquete, datos de pago)
@@ -26,7 +26,7 @@ Si quieres un correo por cada inscripción, escribe tu correo en `NOTIFY_EMAIL` 
 ## 2. Publicar (GitHub Pages)
 
 **Settings → Pages → Deploy from a branch → main → / (root) → Save**.
-Queda en `https://yinoxavier.github.io/FormCamps2/`.
+Queda en `https://campsshalom.github.io/inscripcion/`.
 
 ## Datos que se ajustan en `index.html`
 
