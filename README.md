@@ -39,3 +39,15 @@ Queda en `https://campsshalom.github.io/inscripcion/`.
 - Si la persona es **menor de 18 años**, aparecen los campos del responsable y pasan a ser obligatorios.
 - Si la edad está fuera de **14 a 28 años**, se muestra un aviso, pero no se bloquea la inscripción.
 - La hoja guarda la edad calculada y marca con "Sí" la columna **¿Documento repetido?** cuando un documento ya estaba inscrito.
+
+## Avisos por Telegram
+
+Cada inscripción manda un mensaje a un grupo de Telegram con lo básico: nombre, forma de pago, si subió comprobante y el total de inscritos. Los datos de salud y los contactos se quedan solo en la hoja.
+
+1. En Telegram, abre **@BotFather** → `/newbot` → ponle un nombre (por ejemplo "Avisos Camps") y un usuario que termine en `bot`. Copia el **token** que te da.
+2. Crea un grupo (por ejemplo "Equipo Camp's 2027"), agrega el bot y escribe `/start` en el grupo.
+3. En Apps Script, pega el token en `TELEGRAM_TOKEN: ''` dentro de `SETTINGS`. **No subas el token a GitHub.**
+4. Elige la función **`configurarTelegram`** → **Ejecutar** → acepta el permiso nuevo ("conectarse a un servicio externo"). Debe llegar un mensaje de prueba al grupo.
+5. **Implementar → Gestionar implementaciones → lápiz → Versión: Nueva versión → Implementar.** La URL no cambia.
+
+Si Telegram falla, la inscripción se guarda igual; el error queda en **Ejecuciones** de Apps Script.
